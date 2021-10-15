@@ -1,0 +1,22 @@
+/* Media Querie */
+
+@mixin breakpoint($media) {
+  @if $media == xs {
+    @media only screen and (max-width: $screen-xs-max) { @content; }
+  }
+  @else if $media == sm {
+    @media only screen and (max-width: $screen-sm-max) { @content; }
+  }
+  @else if $media == md {
+    @media only screen and (max-width: $screen-md-max) { @content; }
+  }
+  @else if $media == lg {
+    @media only screen and (min-width: $screen-lg-min) { @content; }
+  }
+}
+
+@mixin typography($size, $weight, $lineHeight) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lineHeight;
+}

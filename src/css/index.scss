@@ -1,0 +1,14 @@
+/* Variables */
+@import "./variables.scss";
+
+/* Mixins */
+@import "./_mixins.scss";
+
+/* CSS */
+@import "./global.scss";
+@import "./animations.scss";
+@import "./buttons.scss";
+
+/* Components */
+@import "../components/Loading/index.scss";
+@import "./home/index.scss";

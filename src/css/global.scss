@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    scroll-behavior: smooth !important;
+  }
+  
+  body {
+    font: 400 10px $fontFamily;
+  }
+  
+  body, html {
+    height: 100vh;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  ul {
+    list-style: none;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+
+  .wrap{
+    margin: 0 auto;
+    max-width: 100%;
+    position: relative;
+    width: 900px;
+
+    @include breakpoint(md) {
+      padding: 0 34px;
+    }
+  }
+
+  picture {
+    display: block;
+    img {
+      width: 100%;
+    }
+  }
+
+  // @include breakpoint(sm) {
+  //   body {
+  //     background: $tertiaryColor;
+  //   }
+  // }
+
+  // @include breakpoint(md) {
+  //   body {
+  //     background: $secondaryColor;
+  //   }
+  // }
+
+  // @include breakpoint(lg) {
+  //   body {
+  //     background: $primaryColor;
+  //   }
+  // }
+

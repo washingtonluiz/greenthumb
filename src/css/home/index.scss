@@ -1,0 +1,431 @@
+.container {
+  &__header {
+    background: $tertiaryColor;
+    height: 500px;
+    position: relative;
+    @include breakpoint(xs) {
+      height: 593px;
+    }
+    &__leaves {
+      display: flex;
+      height: 100%;
+      overflow: hidden;
+      picture {
+        @include breakpoint(xs) {
+          position: relative;
+        }
+        img {
+          height: 100%;
+          width: auto;
+        }
+        &:first-child {
+          width: 862px;
+          @include breakpoint(xs) {
+            width: 100%;
+            z-index: 2;
+            img {
+              margin-top: -145px;
+            }
+          }
+        }
+        &:nth-child(2) {
+          width: 335px;
+          @include breakpoint(xs) {
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+            z-index: 1;
+            img {
+              display: block;
+              margin: 0 auto;
+              margin-top: -180px;
+              width: 80%;
+            }
+          }
+        }
+        &:last-child {
+          width: 361px;
+          @include breakpoint(xs) {
+            display: none;
+          }
+        }
+      }
+    }
+    .header__destac {
+      color: $white;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      &__content {
+        height: 100%;
+        @include breakpoint(xs) {
+          z-index: 3;
+        }
+        &__logo {
+          margin: 57px 0 42px 0;
+  
+          @include breakpoint(xs) {
+            margin: 36px 0 31px 0;
+            width: 163px
+          }
+        }
+        &__title {
+          @include typography(70px, bold, 85px);
+          margin-bottom: 30px;
+          max-width: 400px;
+  
+          @include breakpoint(xs) {
+            @include typography(40px, bold, 48px);
+            max-width: 251px;
+          }
+        }
+        &__arrow-down {
+          @include breakpoint(lg) {
+            animation: arrow 1.5s infinite linear;
+          }
+        }
+      }
+    }
+  }
+
+  &__search-friend {
+    background: $white;
+    padding: 55px 0;
+    &__list {
+      display: grid;
+      grid-column-gap: 16px;
+      grid-row-gap: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &:nth-child(2) {
+          picture {
+            width: 103px
+          }
+        }
+        picture {
+          display: block;
+          height: 75px;
+          margin-bottom: 6px;
+          width: 75px;
+        }
+        span {
+          color: $greyLight;
+          display: block;
+          margin-bottom: 24px;
+          max-width: 220px;
+          @include typography(14px, normal, 22px);
+          strong{
+            @include typography(14px, bold, 22px);
+            color: $greyDark;
+          }
+        }
+        &__select {
+          align-items: center;
+          border: 1px solid $greyLight;
+          border-radius: 19px;
+          display: flex;
+          height: 40px;
+          justify-content: space-between;
+          position: relative;
+          width: 220px;
+          span {
+            @include typography(14px, 300, 27px);
+            align-items: center;
+            cursor: default;
+            display: flex;
+            height: 100%;
+            margin: 0;
+            padding-left: 18px;
+            position: relative;
+            width: calc(100% + 20px);
+            z-index: 2;
+          }
+          img {
+            margin-right: 13px;
+            position: absolute;
+            right: 0;
+            transition: transform 0.3s ease-in-out;
+            width: 18px;
+            z-index: 1;
+          }
+          ul {
+            border-bottom: 1px solid #A8A8A8;
+            border-left: 1px solid #A8A8A8;
+            border-right: 1px solid #A8A8A8;
+            border-radius: 0 0 19px 19px;
+            top: 39px;
+            display: none;
+            left: -1px;
+            position: absolute;
+            transition: display 0.3s ease-in-out;
+            width: calc(100% + 2px);
+            z-index: 1;
+            li {
+              @include typography(14px, 300, 27px);
+              align-items: center;
+              background: $white;
+              color: $greyLight;
+              display: flex;
+              height: 40px;
+              cursor: pointer;
+              padding: 0 18px;
+              transition: background 0.3s ease-in-out;
+              &.active {
+                background: $tertiaryColor;
+                color: $white;
+              }
+              &:last-child {
+                border-radius: 0 0 19px 19px;
+              }
+              &:hover {
+                background: $tertiaryColor;
+                color: $white;
+              }
+            }
+          }
+          &.active {
+            border-bottom: 0;
+            border-radius: 19px 19px 0 0;
+            img {
+              transform: rotate(-180deg);
+            }
+            ul {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__search-results {
+    background: $backgroundGrey;
+    display: none;
+    padding: 50px 0;
+    &.active {
+      display: block;
+    }
+    &.has-data {
+      .container__search-results__products {
+        display: block;
+      }
+      .container__search-results__no-result {
+        display: none;
+      }
+    }
+    &.no-data {
+      .container__search-results__products {
+        display: none;
+      }
+      .container__search-results__no-result {
+        display: flex;
+      }
+    }
+    &__no-result {
+      align-items: center;
+      display: flex;
+      @include breakpoint(xs) {
+        flex-direction: column;
+        picture {
+          width: 86px;
+        }
+      }
+      picture {
+        width: 106px;
+      }
+      &__message {
+        margin-right: 160px;
+        @include breakpoint(xs) {
+          margin: 0 0 40px 0;
+        }
+        h2 {
+          @include typography(45px, bold, 55px);
+          color: $textGray;
+          margin-bottom: 15px;
+        }
+        h3 {
+          @include typography(16px, normal, 27px);
+          color: $textGray;
+          max-width: 220px;
+        }
+      }
+    }
+    &__products {
+      > picture {
+        margin-bottom: 25px;
+        width: 158px;
+        @include breakpoint(xs) {
+          width: 146px;
+        }
+      }
+      > h2 {
+        @include typography(55px, bold, 67px);
+        color: $dark;
+        margin-bottom: 54px;
+        @include breakpoint(xs) {
+          @include typography(40px, 700, 49px);
+        }
+      }
+      &__list {
+        display: grid;
+        grid-column-gap: 25px;
+        grid-row-gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(206px, 1fr));
+        margin-bottom: 60px;
+        @include breakpoint(xs) {
+          -webkit-overflow-scrolling: touch;
+          display: flex;
+          margin-bottom: 10px;
+          overflow-x: scroll;
+          overflow-y: hidden;
+          padding-bottom: 20px;
+          position: relative;
+          white-space: nowrap;
+          width: calc(90vw - 3px);
+        }
+        &__item {
+          background: $white;
+          border-radius: 5px;
+          display: flex;
+          flex-direction: column;
+          min-height: 245px;
+          justify-content: flex-end;
+          transition: box-shadow 0.5s ease-in-out;
+          padding: 15px 20px;
+          position: relative;
+          @include breakpoint(xs) {
+            width: 200px;
+          }
+          @include breakpoint(lg) {
+            &:hover {
+              box-shadow: 0 0 10px rgba(117, 188, 151, 0.5);
+            }
+          }
+          &__favorite {
+            @include typography(18px, 700, 21px);
+            align-items: center;
+            background: $tertiaryColor;
+            border-radius: 0 50px 50px 0;
+            color: $white;
+            display: none;
+            height: 45px;
+            left: 0;
+            padding-left: 20px;
+            position: absolute;
+            top: 30px;
+            width: 190px;
+          }
+          picture {
+            margin: 0 auto 8px auto;
+            width: 135px;
+          }
+          &__box {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            &__price{
+              @include typography(16px, bold, 16px);
+              color: $textGreen;
+            }
+            &__icons {
+              align-items: center;
+              display: flex;
+              picture {
+                margin: 0 2px;
+                width: 20px;
+                &.water-rarely {
+                  width: 15px;
+                  @include breakpoint(xs) {
+                    width: 30px;
+                  }
+                }
+              }
+            }
+          }
+          footer {
+            h2 {
+              @include typography(16px, bold, 19px);
+              color: $textGreen;
+              margin-bottom: 8px;
+            }
+          }
+          &--favorite{
+            .container__search-results__products__list__item__favorite {
+              display: flex;
+              @include breakpoint(sm) {
+                @include typography(12.8px, 700, 15.6px);
+                height: 35px;
+                padding-left: 15px;
+                top: 20px;
+                width: 132px;
+              }
+            }
+            @include breakpoint(lg) {
+              grid-row: 1/3;
+              grid-column: 1/3;
+              min-height: 510px;
+              justify-content: flex-end;
+              > picture {
+                width: 300px;
+              }
+              footer{
+                display: flex;
+                justify-content: space-between;
+                h2 {
+                 @include typography(35px, bold, 37px);
+                 max-width: 190px;
+                }
+                .container__search-results__products__list__item__box {
+                  flex-direction: column;
+                  align-items: flex-end;
+                  span {
+                    @include typography(24px, bold, 28px);
+                    margin-bottom: 16px;
+                  }
+                  &__icons{
+                    picture {
+                      margin: 0 3px;
+                      width: 35px;
+                      &.water-rarely {
+                        @include breakpoint(xs) {
+                          width: 22px;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            @include breakpoint(xs) {
+              > picture {
+                width: 117px;
+              }
+            }
+          }
+        }
+
+      }
+      .btn {
+        .white {
+          display: none;
+        }
+        @include breakpoint(lg) {
+          transition: background 0.3s ease-in-out;
+          &:hover {
+            background: $primaryColor;
+            color: $white;
+            .white {
+              display: block;
+            }
+            .green {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

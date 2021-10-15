@@ -1,0 +1,22 @@
+.btn {
+  @include typography(16px, normal, 20px);
+  align-items: center;
+  border-radius: 25px;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  img {
+    margin-right: 15px;
+  }
+}
+.contained {
+  @extend .btn;
+  background: $primaryColor;
+  color: $white;
+}
+.outlined {
+  @extend .btn;
+  background: transparent;
+  border: 1px solid $primaryColor;
+  color: $primaryColor;
+}
