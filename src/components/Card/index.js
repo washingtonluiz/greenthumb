@@ -7,7 +7,7 @@ import NoSun from "../../images/icons/no-sun.svg";
 import NonToxic from "../../images/icons/pet.svg";
 import Toxic from "../../images/icons/toxic.svg";
 
-const listCards = (data) => {
+const Card = (data) => {
   const element = document.querySelector(".container__search-results__products__list");
   element.innerHTML = data.map((item) => {
     return (
@@ -44,4 +44,4 @@ const listCards = (data) => {
   }).join('')
 }
 
-export default listCards;
+export default Card;
